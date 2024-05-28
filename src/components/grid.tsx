@@ -25,9 +25,9 @@ export default function Grid() {
   }
 
   return (
-    <div className="grid-stack bg-blue-200" gs-row="2">
+    <div className="grid-stack bg-slate-950 tdx" gs-row="2">
       <div
-        className="grid-stack-item border-dark bg-lime-300"
+        className="grid-stack-item border-dark bg-blue-800"
         gs-w="1"
         gs-h="1"
       >
@@ -35,7 +35,9 @@ export default function Grid() {
           {showItems ? (
             <Items />
           ) : (
-            <button onClick={handleClick}>Add Item</button>
+            <button onClick={handleClick} className="text-white">
+              Add Item
+            </button>
           )}
           {/* <button>Remove Item</button>
           <button>Update Item</button> */}

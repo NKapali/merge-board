@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+** Global colors to consider according to brand
+** Blue: #003bc3
+** Purple: #270086
+** Green: #1c991e
+** White: #fff
+ */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
