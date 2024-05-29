@@ -8,9 +8,13 @@ import {
 } from '@headlessui/react';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
-export default function Items() {
+interface ItemProps {
+  sendDataToParent: any;
+}
+
+export default function Items(props: ItemProps) {
   const allItems = items;
   // Get only Broom Cabinents
   const broomCabinentAll = allItems.filter((bc, index) =>
@@ -25,9 +29,21 @@ export default function Items() {
   });
 
   const [selected, setSelected] = useState(broomCabinent[0]);
+  // console.log('Selected', selected);
+
+  const [data, setData] = useState('');
+
+  function handleClick() {
+    setData(selected!.itemType);
+    props.sendDataToParent(data);
+    console.log('Setdata:', setData);
+  }
 
   return (
-    <div className="mx-auto h-screen w-52 pt-20">
+    <div className="mx-auto w-52 pt-20">
+      <button className="mb-3 text-white" onClick={handleClick}>
+        Add here
+      </button>
       <Listbox value={selected} onChange={setSelected}>
         <ListboxButton
           className={clsx(
@@ -65,7 +81,4 @@ export default function Items() {
       </Listbox>
     </div>
   );
-  // broomCabinent.map((items) => (
-  //   <li key={items?.itemType}> {items?.itemType} </li>
-  // ));
 }

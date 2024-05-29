@@ -3,8 +3,8 @@
 import 'gridstack/dist/gridstack.min.css';
 import 'gridstack/dist/gridstack-extra.css';
 import { GridStack } from 'gridstack';
-import { useEffect, useState } from 'react';
-import Items from '@/data/items';
+import { Fragment, useEffect, useState } from 'react';
+import GridItems from './grid-items';
 
 export default function Grid() {
   /*
@@ -16,33 +16,24 @@ export default function Grid() {
   useEffect(() => {
     const grid = GridStack.init({ column: 4 });
     grid.enableResize(false);
+    // console.log(grid.getGridItems());
+
+    // if (grid.getGridItems().length) {
+    //   console.log('Yes');
+    // }
   });
 
-  const [showItems, setShowItems] = useState(false);
-
-  function handleClick(e: { preventDefault: () => void }) {
-    setShowItems(true);
-  }
-
   return (
-    <div className="grid-stack bg-slate-950 tdx" gs-row="2">
-      <div
-        className="grid-stack-item border-dark bg-blue-800"
-        gs-w="1"
-        gs-h="1"
-      >
-        <div className="grid-stack-item-content">
-          {showItems ? (
-            <Items />
-          ) : (
-            <button onClick={handleClick} className="text-white">
-              Add Item
-            </button>
-          )}
-          {/* <button>Remove Item</button>
-          <button>Update Item</button> */}
-        </div>
-      </div>
+    <div className="grid-stack bg-slate-500 tdx" gs-row="2">
+      {/* Optional content prop, used to display cabinets or a button */}
+      <GridItems content="Broom" />
+      <GridItems />
+      <GridItems />
+      <GridItems />
+      <GridItems />
+      <GridItems />
+      <GridItems />
+      <GridItems />
     </div>
   );
 }
