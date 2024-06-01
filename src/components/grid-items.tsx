@@ -13,16 +13,6 @@ import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
 export default function GridItems() {
-  const [showItems, setShowItems] = useState(true);
-
-  // // Callback function to child component so to get the content added via add button.
-  // const [dataFromChild, setDataFromChild] = useState('');
-
-  // function handleDataFromChild(data: any) {
-  //   setDataFromChild(data);
-  //   // console.log('Data Parent:', dataFromChild);
-  // }
-
   const allItems = items;
   // Get only Broom Cabinents
   const broomCabinentAll = allItems.filter((bc) =>
@@ -114,8 +104,11 @@ export default function GridItems() {
           gs-h="1"
         >
           <div className="grid-stack-item-content flex justify-center">
-            <p>{selectedItemLevel}</p>
+            <p className="text-white">Level: {selectedItemLevel}</p>
             <Image src={Wardrobe} alt="logo" />
+            <div>
+              <button onClick={() => setSelectedData('')}>Remove</button>
+            </div>
           </div>
         </div>
       )}
