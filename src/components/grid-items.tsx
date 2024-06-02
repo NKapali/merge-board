@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Wardrobe from '@/images/wardrobe.svg';
 import { Fragment, use, useState } from 'react';
-import { items } from '@/data/assigment.json';
 import {
   Listbox,
   ListboxButton,
@@ -11,8 +10,11 @@ import {
 } from '@headlessui/react';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
+import { items } from '@/data/assignment.json';
+import Link from 'next/link';
 
 export default function GridItems() {
+  console.log('Items:', items);
   const allItems = items;
   // Get only Broom Cabinents
   const broomCabinentAll = allItems.filter((bc) =>
@@ -26,8 +28,6 @@ export default function GridItems() {
     return broomCabinentAll.find((a) => a?.itemId === id);
   });
 
-  // console.log('All brooms:', broomCabinent);
-
   const [selected, setSelected] = useState(broomCabinent[0]);
   const [selectedData, setSelectedData] = useState('');
   const [selectedItemLevel, setSelectedItemLevel] = useState<number | null>(
@@ -36,11 +36,9 @@ export default function GridItems() {
 
   console.log(selectedItemLevel);
 
-  // console.log(selected);
   function handleClick() {
     setSelectedData(selected!.itemType);
     setSelectedItemLevel(selected!.itemLevel);
-    alert(selected?.itemType);
   }
 
   return (
@@ -104,11 +102,17 @@ export default function GridItems() {
           gs-h="1"
         >
           <div className="grid-stack-item-content flex justify-center">
-            <p className="text-white">Level: {selectedItemLevel}</p>
-            <Image src={Wardrobe} alt="logo" />
             <div>
+              <p className="text-white">Level: {selectedItemLevel}</p>
+              <Link href={`/edit/${selected!.itemId}`} className="text-white">
+                {' '}
+                Edit{' '}
+              </Link>
               <button onClick={() => setSelectedData('')}>Remove</button>
             </div>
+            <Image src={Wardrobe} alt="logo" />
+            <div></div>
+            <br />
           </div>
         </div>
       )}
