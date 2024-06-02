@@ -14,22 +14,16 @@ export default function Grid() {
    * Change grid columns: https://github.com/gridstack/gridstack.js#change-grid-columns
    */
   useEffect(() => {
-    const grid = GridStack.init({ column: 4 });
+    const grid = GridStack.init({
+      column: 7,
+    });
     grid.enableResize(false);
-    // console.log(grid.getGridItems());
-
-    // if (grid.getGridItems().length) {
-    //   console.log('Yes');
-    // }
   });
 
   return (
     <Fragment>
-      <div className="grid-stack bg-slate-500 tdx" gs-row="2">
-        {/* Optional content prop, used to display cabinets or a button
-        <GridItems content="Broom" />
-        {/* https://hackernoon.com/how-to-pass-components-via-props-in-react */}
-        {Array(8).fill(<GridItems />)}
+      <div className="grid-stack bg-slate-500 tdx">
+        {Array(63).fill(<GridItems />)}
       </div>
     </Fragment>
   );

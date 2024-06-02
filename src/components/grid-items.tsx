@@ -100,12 +100,20 @@ export default function GridItems() {
           gs-w="1"
           gs-h="1"
         >
-          <div className="grid-stack-item-content flex justify-center">
+          <div className="grid-stack-item-content flex flex-col justify-items-start">
             <div>
-              <p className="text-white">Level: {selectedItemLevel}</p>
-              <button onClick={() => setSelectedData('')}>Remove</button>
+              <p className="text-white">
+                Level: {selectedItemLevel},{' '}
+                <span className="text-[#1c991e] font-extrabold">Mergeable</span>{' '}
+              </p>
+              <Button
+                onClick={() => setSelectedData('')}
+                className="rounded bg-red-500 py-2 px-4 text-sm text-white data-[hover]:bg-[#270086] data-[active]:bg-sky-700 mt-4"
+              >
+                Remove
+              </Button>
             </div>
-            <Image src={Wardrobe} alt="logo" />
+            <Image className="flex-1 self-center" src={Wardrobe} alt="logo" />
           </div>
         </div>
       )}
