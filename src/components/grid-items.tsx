@@ -113,7 +113,11 @@ export default function GridItems() {
                 Remove
               </Button>
             </div>
-            <Image className="flex-1 self-center" src={Wardrobe} alt="logo" />
+            <Image
+              className="flex-1 self-center w-28"
+              src={Wardrobe}
+              alt="logo"
+            />
           </div>
         </div>
       )}
