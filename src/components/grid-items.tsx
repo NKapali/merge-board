@@ -14,7 +14,6 @@ import { items } from '@/data/assignment.json';
 import Link from 'next/link';
 
 export default function GridItems() {
-  console.log('Items:', items);
   const allItems = items;
   // Get only Broom Cabinents
   const broomCabinentAll = allItems.filter((bc) =>
