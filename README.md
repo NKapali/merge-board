@@ -34,3 +34,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Things to be aware
+
+Save function is not ideal as react creates dublicate data, so the data will be converted into an array. Upon save the data change will break add item funcionality, so do make sure to undo save and return the data to original state after saving in 'src/data/assignment.json'.

@@ -9,12 +9,6 @@ export default function Home() {
         <h1 className="text-4xl">Merge board</h1>
         <div className="nav">
           <Link
-            href="/edit-data"
-            className="text-black hover:bg-[#003bc3] hover:text-white p-2"
-          >
-            Edit Data
-          </Link>
-          <Link
             href="/hidden-items"
             className="text-black hover:bg-[#003bc3] hover:text-white p-2"
           >
@@ -25,6 +19,12 @@ export default function Home() {
             className="text-black hover:bg-[#003bc3] hover:text-white p-2"
           >
             Bubble items
+          </Link>
+          <Link
+            href="/edit-data"
+            className="text-black hover:bg-[#003bc3] hover:text-white p-2"
+          >
+            Edit Data
           </Link>
         </div>
       </div>
